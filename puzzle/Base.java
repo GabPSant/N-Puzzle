@@ -8,10 +8,10 @@ import java.util.Collections;
 public class Base {
 	private int x;
     private int y;
-	private int pecas[][] = new int[3][3];
 	private int m;
 	// definir é o valor que define o  tamanho e quantidade de valores dentro da matriz
 	public String Calculo(int definir) {
+		int pecas[][] = new int[definir][definir];
 		ArrayList<Integer> numeros = new ArrayList<Integer>();
 		m = 0;
 		for(int n = 0; n < (definir*definir); n++){// Cria o conjunto de números usados na Matriz
@@ -27,9 +27,5 @@ public class Base {
 	        }
 		System.out.print(Arrays.deepToString(pecas));
 		return Arrays.deepToString(pecas);
-	}
-		public static void main(String[] args){
-		Base calculo = new Base();
-		calculo.Calculo(3);
 	}
 }
