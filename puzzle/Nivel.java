@@ -24,6 +24,6 @@ public class Nivel extends Base{
 		
 		Nivel teste = new Nivel();
 		//testando
-		teste.Dificuldade("Medio");
+		teste.Dificuldade("Facil");
 	}
 }
