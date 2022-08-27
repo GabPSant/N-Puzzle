@@ -9,8 +9,17 @@ public class Base {
 	private int x;
     private int y;
 	private int m;
+	private int definir;
+	
+	public Base(int definir) {
+		this.definir = definir;
+	}
+	public void SetModo(int definir) {
+		this.definir = definir;
+	};
+	
 	// definir é o valor que define o  tamanho e quantidade de valores dentro da matriz
-	public String Calculo(int definir) {
+	public String Calculo() {
 		int pecas[][] = new int[definir][definir];
 		ArrayList<Integer> numeros = new ArrayList<Integer>();
 		m = 0;
