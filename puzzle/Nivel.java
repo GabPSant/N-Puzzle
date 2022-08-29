@@ -21,12 +21,9 @@ public class Nivel extends Base{
 			escolha.Calculo();
 			break;
 		}
-		
 	}
 	public static void main(String[] args) {
-		
 		Nivel teste = new Nivel(0);
-		//testando
 		teste.Dificuldade("Facil");
 	}
 }
