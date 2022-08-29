@@ -1,5 +1,6 @@
 package ui;
 import java.awt.*;
+import puzzle.Nivel;
 import java.awt.event.*;
 import javax.swing.*;
 import puzzle.Nivel;
@@ -8,9 +9,10 @@ public class UI extends JFrame{
 	private JButton botão[] = new JButton[9];
 	Nivel valores = new Nivel(0);
 	public void UITeste(){
+		valores.Dificuldade("Facil");
 		JFrame tela = new JFrame("teste");
 		JPanel grade = new JPanel();
-		tela.setSize(600,600);
+		tela.setSize(500,500);
 		tela.setVisible(true);
 		grade.setSize(300,300);
 		grade.setBounds(50, 50, 300, 300);
