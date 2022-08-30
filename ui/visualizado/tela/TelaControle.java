@@ -15,8 +15,9 @@ import ui.visualizado.botao.BotaoCima;
 import ui.visualizado.botao.BotaoDireita;
 import ui.visualizado.botao.BotaoEsquerda;
 
-public class TelaControle implements KeyListener, TabuleiroObservador{// Serve para definir os botões que o usuário vai usar na tela
-	private JPanel pecas = new JPanel();
+public class TelaControle extends JPanel implements KeyListener, TabuleiroObservador{/**
+/*Serve para definir os botões que o usuário vai usar na tela*/
+	private static final long serialVersionUID = 1L;
 	private Tabuleiro tabuleiro;
 	private Jogador jogador;
 	private TelaTabuleiro telaTabuleiro;
@@ -40,39 +41,39 @@ public class TelaControle implements KeyListener, TabuleiroObservador{// Serve p
 		GridBagConstraints posicao = new GridBagConstraints();
 		posicao.fill = GridBagConstraints.HORIZONTAL;
 
-		pecas.setLayout(layout);
+		setLayout(layout);
 
 		posicao.gridy = 0;
 		posicao.gridx = 0;
 		JLabel jogadorLabel = new JLabel(String.format("Jogador: %s", jogador.getJogadorNome()));
-		pecas.add(jogadorLabel, posicao);
+		add(jogadorLabel, posicao);
 
 		posicao.gridy = 1;
 		posicao.gridx = 0;
 		posicao.gridwidth = 3;
 		jogadasLabel = new JLabel(String.format("Jogadas: %d", jogador.getJogadas()));
-		pecas.add(jogadasLabel, posicao);
+		add(jogadasLabel, posicao);
 // Ainda precisamos resolver o problema dos botões.
 		posicao.gridwidth = 1;
 		posicao.gridy = 0;
 		posicao.gridx = 5;
 		botaoCima = new BotaoCima("↑", tabuleiro, telaTabuleiro, this, jogador);
-		pecas.add(botaoCima, posicao);
+		add(botaoCima, posicao);
 
 		posicao.gridy = 2;
 		posicao.gridx = 5;
 		botaoBaixo = new BotaoBaixo("↓", tabuleiro, telaTabuleiro, this, jogador);
-		pecas.add(botaoBaixo, posicao);
+		add(botaoBaixo, posicao);
 
 		posicao.gridy = 1;
 		posicao.gridx = 6;
 		botaoDireita = new BotaoDireita("→", tabuleiro, telaTabuleiro, this, jogador);
-		pecas.add(botaoDireita, posicao);
+		add(botaoDireita, posicao);
 
 		posicao.gridy = 1;
 		posicao.gridx = 4;
 		botaoEsquerda = new BotaoEsquerda("←", tabuleiro, telaTabuleiro, this, jogador);
-		pecas.add(botaoEsquerda, posicao);
+		add(botaoEsquerda, posicao);
 	}
 
 	public void atualizaJogadas(Integer numero) {
