@@ -1,18 +1,18 @@
-package puzzle;
+package puzzle.base;
 
 import java.util.Arrays;
 
 import java.util.ArrayList; 
 import java.util.Collections; 
 
-public class Base {
+public class BaseNumero {
 	private int x;
     private int y;
 	private int m = 0;
 	private int definir;
 	private int pecas[][];
 	
-	public Base(int definir) {
+	public BaseNumero(int definir) {
 		this.definir = definir;
 	}
 	public void SetModo(int definir) {

@@ -1,4 +1,4 @@
-package puzzle.calculo;
+package puzzle.base;
 
 import java.util.Arrays;
 import java.util.ArrayList; 
@@ -6,11 +6,11 @@ import java.util.Collections;
 
 import puzzle.*;
 
-public class CalculoLetra extends Base{
+public class BaseLetra extends BaseNumero{
 
 	private static Object caracteres;
 	
-	public CalculoLetra(int definir) {
+	public BaseLetra(int definir) {
 	
 		super(definir);
 	}
@@ -38,7 +38,7 @@ public class CalculoLetra extends Base{
 	             //  pecas[x][y] = caracteres.get(m);
 				 //  m++;
 
-				   switch(((ArrayList<Integer>) CalculoLetra.caracteres).get(m)) {
+				   switch(((ArrayList<Integer>) BaseLetra.caracteres).get(m)) {
 				   case 0:
 					    System.out.println(" ");
 					    break;

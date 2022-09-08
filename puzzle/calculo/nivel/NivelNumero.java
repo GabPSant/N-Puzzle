@@ -1,12 +1,14 @@
-package puzzle;
+package puzzle.calculo.nivel;
 
-public class Nivel extends Base{
-	public Nivel(int definir) {
+import puzzle.base.BaseNumero;
+
+public class NivelNumero extends BaseNumero{
+	public NivelNumero(int definir) {
 		super(definir);
 	}
 	
 	public void Dificuldade(String nivel) {
-		Base escolha = new Base(0);
+		BaseNumero escolha = new BaseNumero(0);
 		switch(nivel) {
 		case "Facil":
 			escolha.SetModo(3);
@@ -23,7 +25,7 @@ public class Nivel extends Base{
 		}
 	}
 	public static void main(String[] args) {
-		Nivel teste = new Nivel(0);
-		teste.Dificuldade("Facil");
+		NivelNumero teste = new NivelNumero(0);
+		teste.Dificuldade("Dificil");
 	}
 }
