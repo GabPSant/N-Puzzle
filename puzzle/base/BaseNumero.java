@@ -1,23 +1,17 @@
 package puzzle.base;
 
 import java.util.Arrays;
-
 import java.util.ArrayList; 
 import java.util.Collections; 
 
 public class BaseNumero {
-	private int x;
-    private int y;
 	private int m = 0;
 	private int definir;
 	private int pecas[][];
 	
-	public BaseNumero(int definir) {
+	public void setModo(int definir) {
 		this.definir = definir;
 	}
-	public void SetModo(int definir) {
-		this.definir = definir;
-	};
 	
 	// definir é o valor que define o  tamanho e quantidade de valores dentro da matriz
 	public int[][] Calculo() {
@@ -28,8 +22,8 @@ public class BaseNumero {
 		}
 		Collections.shuffle(numeros);//Embaralha os numeros de forma aleátoria
 		//System.out.println(numeros);
-	       for(x = 0; x < definir; x++){ // Defini cada espaço do array que forma a matriz
-	           for(y = 0; y < definir; y++){
+	       for(int x = 0; x < definir; x++){ // Defini cada espaço do array que forma a matriz
+	           for(int y = 0; y < definir; y++){
 	               pecas[x][y] = numeros.get(m);
 				   m++;
 	            }
@@ -48,10 +42,10 @@ public class BaseNumero {
 	        * 	}
 	        * }
 	        */
-		System.out.print(Arrays.deepToString(pecas));
+			System.out.print(Arrays.deepToString(pecas));
 		return pecas;
 	}
-	public int PorPeça(int x, int y) {
+	public int porPeca(int x, int y) {
 		return pecas[x][y];
 	}
 }
