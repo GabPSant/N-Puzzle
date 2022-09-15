@@ -1,35 +1,32 @@
 package puzzle.calculo.nivel;
-
-import puzzle.*;
-import puzzle.base.*;
+import puzzle.base.BaseLetra;
+import puzzle.deslocamento.DeslocamentoLetra;
 
 public class NivelLetra extends BaseLetra {
-
-	public NivelLetra(int definir) {
-		super(definir);
-	}
-
+	
+	static DeslocamentoLetra des = new DeslocamentoLetra();
+	
 	public void Dificuldade(String nivel) {
-		BaseNumero escolha = new BaseNumero(0);
 		switch (nivel) {
 		case "Facil":
-			escolha.SetModo(3);
-			escolha.Calculo();
+			des.getTabuleiro().setLimite('J');
+			des.getTabuleiro().Calculo();
 			break;
 		case "Medio":
-			escolha.SetModo(4);
-			escolha.Calculo();
+			des.getTabuleiro().setLimite('Q');
+			des.getTabuleiro().Calculo();
 			break;
 		case "Dificil":
-			escolha.SetModo(5);
-			escolha.Calculo();
+			des.getTabuleiro().setLimite('Z');
+			des.getTabuleiro().Calculo();
 			break;
 		}
 	}
 
 	public static void main(String[] args) {
-		NivelLetra teste = new NivelLetra(0);
+		NivelLetra teste = new NivelLetra();
 		teste.Dificuldade("Facil");
+		des.movimento();
 	}
 
 }

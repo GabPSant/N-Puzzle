@@ -1,31 +1,32 @@
 package puzzle.calculo.nivel;
+import puzzle.deslocamento.DeslocamentoNumero;
 
-import puzzle.base.BaseNumero;
-
-public class NivelNumero extends BaseNumero{
-	public NivelNumero(int definir) {
-		super(definir);
-	}
+public class NivelNumero extends DeslocamentoNumero{
+	
+	static DeslocamentoNumero des = new DeslocamentoNumero();
 	
 	public void Dificuldade(String nivel) {
-		BaseNumero escolha = new BaseNumero(0);
+		
 		switch(nivel) {
 		case "Facil":
-			escolha.SetModo(3);
-			escolha.Calculo();
+			des.getTabuleiro().setDefinir(3);
+			des.getTabuleiro().Calculo();
 			break;
 		case "Medio":
-			escolha.SetModo(4);
-			escolha.Calculo();
+			des.getTabuleiro().setDefinir(4);
+			des.getTabuleiro().Calculo();
 			break;
 		case "Dificil":
-			escolha.SetModo(5);
-			escolha.Calculo();
+			des.getTabuleiro().setDefinir(5);
+			des.getTabuleiro().Calculo();
 			break;
 		}
 	}
 	public static void main(String[] args) {
-		NivelNumero teste = new NivelNumero(0);
-		teste.Dificuldade("Dificil");
+		NivelNumero teste = new NivelNumero();
+		
+		teste.Dificuldade("Facil");
+		System.out.println(des.getTabuleiro().getNumeros());
+		des.movimento();
 	}
 }
