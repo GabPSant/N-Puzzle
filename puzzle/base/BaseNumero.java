@@ -12,8 +12,8 @@ public class BaseNumero {
 	}
 	public int getDefinir() {
 		return this.definir;
-	}
-	// definir é o valor que define o  tamanho e quantidade de valores dentro da matriz
+	}// definir é o valor que define o  tamanho e quantidade de valores dentro da matriz
+	
 	public void Calculo() {
 		
 		for(int n = 0; n < (definir*definir); n++){// Cria o conjunto de números usados na Matriz
