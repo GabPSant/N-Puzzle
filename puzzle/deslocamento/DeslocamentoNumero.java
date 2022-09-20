@@ -59,7 +59,7 @@ public class DeslocamentoNumero{
 				System.out.println("Nº de Movimentos: " + observador);
 			}
 			if(maluco) {
-				if(observador == giro ) {// Ainda precisa melhorar para ficar menos estaticos;
+				if(observador%giro == 0) {// Ainda precisa melhorar para ficar menos estaticos;
 					Collections.shuffle(numero.getNumeros());
 					}
 			}

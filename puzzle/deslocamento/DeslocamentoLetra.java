@@ -63,7 +63,7 @@ public class DeslocamentoLetra {
 				System.out.println("Nº de Movimentos: " + observador);
 			}
 			if(maluco) { // Ainda precisa melhorar para ficar menos estaticos;
-				if(observador == giro) {
+				if(observador%giro == 1) {
 					Collections.shuffle(alfabeto.getLetras());
 					}
 			}
