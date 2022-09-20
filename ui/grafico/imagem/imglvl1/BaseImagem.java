@@ -1,4 +1,4 @@
-package puzzle.base.imagem;
+package ui.grafico.imagem.imglvl1;
 
 import java.awt.*;
 
