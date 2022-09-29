@@ -17,7 +17,6 @@ public class TelaJogo {
 		jogo.add(new JButton("5"));
 		jogo.add(new JButton("6"));
 		jogo.add(new JButton("7"));
-		jogo.add(new JButton("8"));
 		jogo.add(new JButton(""));
 		jogo.setSize(300, 300);
 		jogo.setVisible(true);
