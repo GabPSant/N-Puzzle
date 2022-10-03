@@ -17,11 +17,11 @@ public class BaseNumero {
 	public void Calculo() {
 		
 		for(int n = 0; n < (definir*definir); n++){// Cria o conjunto de números usados na Matriz
-			if(n==0) {
+			if(n==8) {
 				numeros.add(null);
 			}
 			else {
-				numeros.add(n);
+				numeros.add(n+1);
 			}
 		}
 		Collections.shuffle(numeros);//Embaralha os numeros de forma aleátoria
