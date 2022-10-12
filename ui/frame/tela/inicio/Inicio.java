@@ -30,7 +30,7 @@ public class Inicio {
 		this.conteudo.add(titulo);
 		
 		this.pagina.setSize(800, 800);
-		this.pagina.setBackground(new Color(25,25,112));
+		this.pagina.getContentPane().setBackground(new Color(25,25,112));
 		this.pagina.add(conteudo);
 		
 		this.pagina.setVisible(true);

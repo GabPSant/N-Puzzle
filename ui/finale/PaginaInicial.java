@@ -1,7 +1,5 @@
 package ui.finale;
 
-import java.awt.*; 
-
 //import java.awt.BorderLayout; 
 import java.awt.Font; 
 import java.awt.Graphics; 
@@ -26,7 +24,7 @@ public class PaginaInicial extends JFrame {
 	public void criarTudo() { 
  
 		inicial = new JLabel("Bem-Vindo ao Puzzle E.Carneiro"); 
-		generos = new JButton("Generos"); 
+		generos = new JButton("Iniciar"); 
 		regras = new JButton("Regras"); 
  
 		setSize(950, 750); 
@@ -43,7 +41,8 @@ public class PaginaInicial extends JFrame {
 		generos.setBounds(60, 50, 110, 70); 
 		generos.setFont(new Font("Arial", Font.BOLD, 30));  
 		generos.addActionListener(new ActionListener () {  
-			public void actionPerformed (ActionEvent e) {  
+			public void actionPerformed (ActionEvent e) {
+				setVisible(false);
 				new Generos().setVisible(true);  
 			}  
 		});  
@@ -53,6 +52,7 @@ public class PaginaInicial extends JFrame {
 		regras.setFont(new Font("Arial", Font.BOLD, 30));  
 		regras.addActionListener(new ActionListener () {  
 			public void actionPerformed (ActionEvent e) {  
+				setVisible(false);
 				new Regras().setVisible(true);  
 			}  
 		});  

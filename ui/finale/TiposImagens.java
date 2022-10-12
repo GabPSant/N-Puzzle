@@ -51,6 +51,7 @@ public class TiposImagens extends JFrame {
   voltar.setFont(new Font("Arial", Font.BOLD, 30));  
   voltar.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
+	   setVisible(false);
     new Generos().setVisible(true);  
    }  
   });  
@@ -60,6 +61,7 @@ public class TiposImagens extends JFrame {
   facil.setFont(new Font("Arial", Font.BOLD, 30));  
   facil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
+	   setVisible(false);
     new BaseImagem().setVisible(true);  
    }  
   });  
@@ -69,6 +71,7 @@ public class TiposImagens extends JFrame {
   medio.setFont(new Font("Arial", Font.BOLD, 30));  
   medio.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
+	   setVisible(false);
     new BaseImagemlvl2().setVisible(true);  
    }  
   });  
@@ -77,7 +80,8 @@ public class TiposImagens extends JFrame {
   dificil.setBounds(30, 30, 100, 100); 
   dificil.setFont(new Font("Arial", Font.BOLD, 30));  
   dificil.addActionListener(new ActionListener () {  
-   public void actionPerformed (ActionEvent e) {  
+   public void actionPerformed (ActionEvent e) {
+	   setVisible(false);
     new BaseImagemlvl3().setVisible(true);  
    }  
   });  

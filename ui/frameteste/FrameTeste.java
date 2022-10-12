@@ -25,6 +25,7 @@ public class FrameTeste extends JFrame {
 		
 		v1.addActionListener(new ActionListener () { 
 			public void actionPerformed (ActionEvent e) { 
+				setVisible(false);
 				new BaseImagem().setVisible(true); 
 			} 
 		}); 

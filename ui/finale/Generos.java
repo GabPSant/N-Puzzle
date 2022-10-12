@@ -49,6 +49,7 @@ public class Generos extends JFrame {
   
   voltar.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
+	   setVisible(false);
     new PaginaInicial().setVisible(true);  
    }  
   });  
@@ -58,6 +59,7 @@ public class Generos extends JFrame {
   numeros.setFont(new Font("Arial", Font.BOLD, 30));  
   numeros.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
+	setVisible(false);
     new TiposNumeros().setVisible(true);  
    }  
   });  
@@ -67,7 +69,8 @@ public class Generos extends JFrame {
   letras.setFont(new Font("Arial", Font.BOLD, 30));  
   letras.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
-    new TiposLetras().setVisible(true);  
+	   setVisible(false);
+	new TiposLetras().setVisible(true);  
    }  
   });  
    
@@ -75,7 +78,8 @@ public class Generos extends JFrame {
   imagens.setBounds(90, 30, 100, 100); 
   imagens.setFont(new Font("Arial", Font.BOLD, 30));  
   imagens.addActionListener(new ActionListener () {  
-   public void actionPerformed (ActionEvent e) {  
+   public void actionPerformed (ActionEvent e) {
+	   setVisible(false);
     new TiposImagens().setVisible(true);  
    }  
   });  

@@ -49,7 +49,8 @@ public class TiposNumeros extends JFrame {
   voltar.setBounds(30, 30, 100, 100); 
   voltar.setFont(new Font("Arial", Font.BOLD, 30));  
   voltar.addActionListener(new ActionListener () {  
-   public void actionPerformed (ActionEvent e) {  
+   public void actionPerformed (ActionEvent e) { 
+	   setVisible(false);
     new Generos().setVisible(true);  
    }  
   });  
@@ -59,6 +60,7 @@ public class TiposNumeros extends JFrame {
   facil.setFont(new Font("Arial", Font.BOLD, 30));  
   facil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
+	   setVisible(false);
     new InterfaceNlvl1().setVisible(true);  
    }  
   });  
@@ -68,6 +70,7 @@ public class TiposNumeros extends JFrame {
   medio.setFont(new Font("Arial", Font.BOLD, 30));  
   medio.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
+	setVisible(false);
     new PaginaInicial().setVisible(true);  
    }  
   });  
@@ -77,6 +80,7 @@ public class TiposNumeros extends JFrame {
   dificil.setFont(new Font("Arial", Font.BOLD, 30));  
   dificil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
+	   setVisible(false);
     new PaginaInicial().setVisible(true);  
    }  
   });  

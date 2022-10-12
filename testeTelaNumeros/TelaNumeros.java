@@ -30,7 +30,7 @@ public class TelaNumeros extends JFrame{
 		 */
 
 	grafico = new JLabel();
-	v1 = new JButton(j);
+	v1 = new JButton();
 
 	setSize(950, 750);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);

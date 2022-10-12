@@ -17,7 +17,7 @@ public class BaseNumero {
 	public void Calculo() {
 		
 		for(int n = 0; n < (definir*definir); n++){// Cria o conjunto de números usados na Matriz
-			if(n==8) {
+			if(n== (definir*definir)-1) {
 				numeros.add(null);
 			}
 			else {

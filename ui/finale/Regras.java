@@ -40,6 +40,7 @@ public class Regras extends JFrame {
   voltar.setFont(new Font("Arial", Font.BOLD, 30));  
   voltar.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
+	   setVisible(false);
     new PaginaInicial().setVisible(true);  
    }  
   });  
