@@ -80,31 +80,31 @@ public class DeslocamentoNumero{
 		int posX = numero.getNumeros().indexOf(null); // procura a possição atual do valor null
 		int tempP;// usado como armazenador temporario do valor posição adjacente
 		int posP;// representa a posição do valor ao qual vai trocar com null
-		if(usado == 'w' || usado == 'W') {
+		if(usado == 'w') {
 			posP = posX - numero.getDefinir();
 			tempP = numero.getNumeros().get(posP);
 			numero.getNumeros().set(posP, null);
 			numero.getNumeros().set(posX, tempP);
 		}
-		else if(usado == 'a' || usado == 'A') {
+		else if(usado == 'a') {
 			posP = posX - 1;
 			tempP = numero.getNumeros().get(posP);
 			numero.getNumeros().set(posP, null);
 			numero.getNumeros().set(posX, tempP);
 		}
-		else if(usado == 'd' || usado == 'D') {
+		else if(usado == 'd') {
 			posP = posX + 1;
 			tempP = numero.getNumeros().get(posP);
 			numero.getNumeros().set(posP, null);
 			numero.getNumeros().set(posX, tempP);
 		}
-		else if(usado == 's' || usado == 'S') {
+		else if(usado == 's') {
 			posP = posX + numero.getDefinir();
 			tempP = numero.getNumeros().get(posP);
 			numero.getNumeros().set(posP, null);
 			numero.getNumeros().set(posX, tempP);
 		}
-		if(usado == 'w' || usado == 'W' ||usado == 'a' || usado == 'A'|| usado == 'd' || usado == 'D' || usado == 's' || usado == 'S') {
+		if(usado == 'w' || usado == 'a' || usado == 'd' || usado == 's') {
 			observador ++;
 			System.out.println("Nº de Movimentos: " + observador);
 		}
@@ -113,52 +113,6 @@ public class DeslocamentoNumero{
 				Collections.shuffle(numero.getNumeros());
 				}
 		}
-	}
-	public void movimento(boolean objetivo) {
 		System.out.println(numero.getNumeros());
-		while(!objetivo) {
-			controle.mudanças(controle.getUsado());
-			/*
-			int posX = numero.getNumeros().indexOf(null); // procura a possição atual do valor null
-			int tempP;// usado como armazenador temporario do valor posição adjacente
-			int posP;// representa a posição do valor ao qual vai trocar com null
-			mover = console.nextLine();
-			if(mover.equalsIgnoreCase("W") || controle.getMover() == "W") {
-				posP = posX - numero.getDefinir();
-				tempP = numero.getNumeros().get(posP);
-				numero.getNumeros().set(posP, null);
-				numero.getNumeros().set(posX, tempP);
-			}
-			else if(mover.equalsIgnoreCase("A") || controle.getMover() == "A") {
-				posP = posX - 1;
-				tempP = numero.getNumeros().get(posP);
-				numero.getNumeros().set(posP, null);
-				numero.getNumeros().set(posX, tempP);
-			}
-			else if(mover.equalsIgnoreCase("D") || controle.getMover() == "D") {
-				posP = posX + 1;
-				tempP = numero.getNumeros().get(posP);
-				numero.getNumeros().set(posP, null);
-				numero.getNumeros().set(posX, tempP);
-			}
-			else if(mover.equalsIgnoreCase("S") || controle.getMover() == "S") {
-				posP = posX + numero.getDefinir();
-				tempP = numero.getNumeros().get(posP);
-				numero.getNumeros().set(posP, null);
-				numero.getNumeros().set(posX, tempP);
-			}
-			if(mover.equalsIgnoreCase("W") || mover.equalsIgnoreCase("A") || mover.equalsIgnoreCase("D")|| mover.equalsIgnoreCase("S")) {
-				observador ++;
-				System.out.println("Nº de Movimentos: " + observador);
-			}
-			if(maluco) {
-				if(observador%giro == 0) {// Ainda precisa melhorar para ficar menos estaticos;
-					Collections.shuffle(numero.getNumeros());
-					}
-			}
-			*/
-			System.out.println(numero.getNumeros());
-			
-		}
 	}
 }
