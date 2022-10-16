@@ -8,6 +8,7 @@ import javax.swing.KeyStroke;
 import javax.swing.JButton;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 
 import java.awt.Color;
@@ -15,11 +16,13 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.KeyEvent;
 import java.awt.GridLayout;
 
 
-public class TelaJogo {
+public class TelaJogo extends JFrame implements MouseListener{
 	static TelaJogo sistema = new TelaJogo();
 	private int posB1;
 	private int posB2;
@@ -34,6 +37,10 @@ public class TelaJogo {
 	Action Esquerda;
 	Action Direita;
 	Action Descer;
+	
+	JButton dica;
+	ImageIcon resultado;
+	ImageIcon logo;
 	
 	public void Teste() {
 		// Metodos para alterar o tabuleiro
@@ -82,9 +89,20 @@ public class TelaJogo {
 			
 			}
 			
+			//dica
+			logo = new ImageIcon(getClass().getResource("lampada001.jpg"));	
+			resultado = new ImageIcon(getClass().getResource("puzzle3x3.jpg"));	
+			
+			dica = new JButton();
+			dica.setBounds(720, 90, 100, 100);
+			dica.setIcon(logo);
+			dica.setOpaque(true);
+			dica.addMouseListener(this);
+			
 			jogo.add(matriz);
 			jogo.setLayout(null);
 			jogo.setVisible(true);
+			jogo.add(dica);
 			matriz.getInputMap().put(KeyStroke.getKeyStroke("W"), "Subir");
 			matriz.getActionMap().put("Subir", Subir);
 			matriz.getInputMap().put(KeyStroke.getKeyStroke("A"), "Esquerda");
@@ -178,4 +196,35 @@ public class TelaJogo {
 		TelaJogo teste = new TelaJogo();
 		teste.Teste();
 	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		dica.setBounds(630, 20, 300, 300);
+		dica.setIcon(resultado);
+		
+	}
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		dica.setBounds(720, 90, 100, 100);
+		dica.setIcon(logo);
+
+		
+	}
+
 }

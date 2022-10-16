@@ -1,5 +1,6 @@
 package ui.finale;
 
+import java.awt.Color;
 //import java.awt.BorderLayout; 
 import java.awt.Font; 
 import java.awt.Graphics; 
@@ -16,26 +17,31 @@ import ui.finale.Generos;
 
 public class PaginaInicial extends JFrame { 
 
+	JFrame tela = new JFrame();
+	JPanel painel = new JPanel();
 	private JLabel inicial; 
 	private JButton generos; 
 	private JButton regras; 
 
 
 	public void criarTudo() { 
- 
-		inicial = new JLabel("Bem-Vindo ao Puzzle E.Carneiro"); 
+		
+		tela.setSize(950, 750);
+		tela.getContentPane().setBackground(new Color(51,153,255));
+		
+		painel.setBounds(260, 50, 370, 370);
+		painel.setBackground(new Color(51,153,255));
+		
+		inicial = new JLabel("Bem-Vindo ao Puzzle Dr. E.Carneiro"); 
 		generos = new JButton("Iniciar"); 
-		regras = new JButton("Regras"); 
- 
-		setSize(950, 750); 
-		setDefaultCloseOperation(EXIT_ON_CLOSE); 
-		setLocationRelativeTo(null); 
-		setVisible(true); 
+		regras = new JButton("Regras");  
+		regras.setToolTipText("SLo");
  
 		//inicial 
 		inicial.setFont(new Font("Arial", Font.BOLD, 30));  
-		inicial.setSize(500, 50); 
+		inicial.setBounds(200, 50,700,50); 
 		//inicial.setAlignmentY(TOP_ALIGNMENT); 
+
  
 		//generos 
 		generos.setBounds(60, 50, 110, 70); 
@@ -57,16 +63,18 @@ public class PaginaInicial extends JFrame {
 			}  
 		});  
 
-
-		Panel painel = new Panel(); 
-		//painel.setLayout(null); 
+		tela.add(inicial); 
+		tela.add(painel);
+		tela.setLayout(null);
+		tela.setVisible(true);
+		tela.setSize(950, 750); 
+		tela.setDefaultCloseOperation(EXIT_ON_CLOSE); 
+		tela.setLocationRelativeTo(null); 
 		painel.setSize(300, 300); 
 		painel.setLocation(300, 300); 
-		add(painel); 
-		add(inicial); 
-		painel.add(generos); 
-		painel.add(regras); 
-
+		painel.add(generos);
+		painel.add(regras);
+		
 	} 
 
 	public PaginaInicial() { 
@@ -77,11 +85,4 @@ public class PaginaInicial extends JFrame {
 		new PaginaInicial(); 
 	} 
 
-	public class Panel extends JPanel { 
- 
-		public void paintComponent(Graphics g) { 
-			super.paintComponent(g); 
-
-		} 
-	} 
 }

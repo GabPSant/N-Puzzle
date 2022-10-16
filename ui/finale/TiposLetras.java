@@ -1,9 +1,6 @@
 package ui.finale;
 
-import java.awt.*; 
-
-import java.awt.BorderLayout; 
-import java.awt.Font; 
+import java.awt.*;
 import java.awt.event.ActionEvent; 
 import java.awt.event.ActionListener; 
  
@@ -17,39 +14,41 @@ import ui.finale.Generos;
 import ui.grafico.letras.lvl1.InterfaceLetraslvl1; 
  
 public class TiposLetras extends JFrame { 
-  
- private JLabel inicial; 
- private JButton voltar; 
- private JButton facil; 
- private JButton medio; 
- private JButton dificil; 
+	
+	JFrame tela = new JFrame();
+	JPanel painel = new JPanel();
+	private JLabel inicial; 
+	private JButton voltar; 
+	private JButton facil; 
+	private JButton medio; 
+	private JButton dificil; 
  
   
  public void criarLetras() { 
+	 
+		tela.setSize(950, 750);
+		tela.getContentPane().setBackground(new Color(51,153,255));
+		
+		painel.setBounds(260, 50, 370, 370);
+		painel.setBackground(new Color(51,153,255));
    
-  inicial = new JLabel("Bem-Vindo ao Puzzle E.Carneiro"); 
-  voltar = new JButton("Voltar"); 
-  facil = new JButton("Facil"); 
-  medio = new JButton("Medio"); 
-  dificil = new JButton("Dificil"); 
+		inicial = new JLabel("Nível Letras"); 
+		voltar = new JButton("Voltar"); 
+		facil = new JButton("Facil"); 
+		medio = new JButton("Médio"); 
+		dificil = new JButton("Dificil"); 
  
-   
-  setSize(950, 750); 
-  setDefaultCloseOperation(EXIT_ON_CLOSE); 
-  setLocationRelativeTo(null); 
-  setVisible(true); 
-   
   //inicial 
   inicial.setFont(new Font("Arial", Font.BOLD, 30));  
-  inicial.setSize(150, 150); 
-  inicial.setAlignmentY(TOP_ALIGNMENT); 
+  inicial.setBounds(320, 50,700,50); 
+  //inicial.setAlignmentY(TOP_ALIGNMENT); 
    
   //voltar 
-  voltar.setBounds(30, 30, 100, 100); 
-  voltar.setFont(new Font("Arial", Font.BOLD, 30));  
+  voltar.setBounds(690, 45, 150, 60); 
+  voltar.setFont(new Font("Arial", Font.ITALIC, 30));  
   voltar.addActionListener(new ActionListener () {  
-   public void actionPerformed (ActionEvent e) {  
-	   setVisible(false);
+		public void actionPerformed (ActionEvent e) {  
+			setVisible(false);
     new Generos().setVisible(true);  
    }  
   });  
@@ -65,7 +64,7 @@ public class TiposLetras extends JFrame {
   });  
    
   //medio 
-  medio.setBounds(30, 30, 100, 100); 
+  medio.setBounds(60, 60, 100, 100); 
   medio.setFont(new Font("Arial", Font.BOLD, 30));  
   medio.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
@@ -75,7 +74,7 @@ public class TiposLetras extends JFrame {
   });  
    
   //dificil 
-  dificil.setBounds(30, 30, 100, 100); 
+  dificil.setBounds(90, 90, 100, 100); 
   dificil.setFont(new Font("Arial", Font.BOLD, 30));  
   dificil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
@@ -84,15 +83,19 @@ public class TiposLetras extends JFrame {
    }  
   });  
   
-  Panel painel = new Panel(); 
-  painel.setSize(300, 300); 
-  painel.setLocation(475, 375); 
-  add(painel); 
-  add(inicial); 
-  painel.add(voltar); 
-  painel.add(facil); 
-  painel.add(medio); 
-  painel.add(dificil); 
+	tela.add(inicial); 
+	tela.add(voltar);
+	tela.add(painel);
+	tela.setLayout(null);
+	tela.setVisible(true);
+	tela.setSize(950, 750); 
+	tela.setDefaultCloseOperation(EXIT_ON_CLOSE); 
+	tela.setLocationRelativeTo(null); 
+	painel.setSize(150, 300); 
+	painel.setLocation(350, 300); 
+	painel.add(facil);
+	painel.add(medio);
+	painel.add(dificil);
  
  } 
   
