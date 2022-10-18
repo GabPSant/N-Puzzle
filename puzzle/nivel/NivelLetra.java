@@ -1,10 +1,14 @@
 package puzzle.nivel;
 import puzzle.base.BaseLetra;
-import puzzle.deslocamento.DeslocamentoLetra;
+import puzzle.deslocamento.DeslocamentoL;
 
 public class NivelLetra extends BaseLetra {
 	
-	static DeslocamentoLetra des = new DeslocamentoLetra();
+	static DeslocamentoL des = new DeslocamentoL();
+	
+	public DeslocamentoL deslocamento() {
+		return des;
+	}
 	
 	public void Dificuldade(String nivel) {
 		if(des.getMaluco() || !des.getMaluco()) {
@@ -28,15 +32,17 @@ public class NivelLetra extends BaseLetra {
 				des.setGiro(2);
 				break;
 			}
-		}
+		}//
 	}
 
 	public static void main(String[] args) {
 		NivelLetra teste = new NivelLetra();
 		teste.Dificuldade("Facil");
-		des.setMaluco(true);
-		System.out.println(des.getTabuleiro().getLetras());
-		des.movimento(false);
+		//des.setMaluco(true);
+		//System.out.println(des.getTabuleiro().getLetras());
+		//des.movimento(false);
 	}
 
-}
+	}
+
+

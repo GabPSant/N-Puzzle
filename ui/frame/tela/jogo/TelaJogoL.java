@@ -1,6 +1,7 @@
 package ui.frame.tela.jogo;
-import puzzle.nivel.NivelNumero;
-import puzzle.deslocamento.DeslocamentoNumero;
+
+import puzzle.nivel.NivelLetra;
+import puzzle.deslocamento.DeslocamentoL; 
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -22,12 +23,12 @@ import java.awt.event.KeyEvent;
 import java.awt.GridLayout;
 
 
-public class TelaJogo extends JFrame implements MouseListener{
-	static TelaJogo sistema = new TelaJogo();
+public class TelaJogoL extends JFrame implements MouseListener{
+	static TelaJogoL sistema = new TelaJogoL();
 	private int posB1;
 	private int posB2;
 	private int tempB2;
-	NivelNumero teste = new NivelNumero();
+	NivelLetra teste = new NivelLetra();
 	JFrame jogo = new JFrame();
 	JPanel matriz = new JPanel();
 	JButton[] mov = new JButton[4];
@@ -42,21 +43,23 @@ public class TelaJogo extends JFrame implements MouseListener{
 	ImageIcon resultado;
 	ImageIcon logo;
 	
-	public NivelNumero getTeste() {
+	public NivelLetra getTeste() {
 		return teste;
 	}
 	
 	public void Teste() {
 		// Metodos para alterar o tabuleiro
+		//teste.deslocamento().getTabuleiro().setLimite('Z');
 		teste.deslocamento().getTabuleiro().Calculo();
-		this.começo = new GridLayout(teste.deslocamento().getTabuleiro().getDefinir(),teste.deslocamento().getTabuleiro().getDefinir());
+		//teste.deslocamento().setDefinir(5);
+		this.começo = new GridLayout(teste.deslocamento().getDefinir(),teste.deslocamento().getDefinir());
 		matriz.setLayout(começo);
 		Subir = new Subir();
 		Esquerda = new Esquerda();
 		Direita = new Direita();
 		Descer = new Descer();
 		
-		this.botoes = new JButton[(int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2)];
+		this.botoes = new JButton[(int)Math.pow(teste.deslocamento().getTabuleiro().getLimite(), 2)];
 		
 		jogo.setSize(950, 750);
 		jogo.getContentPane().setBackground(new Color(51,153,255));
@@ -80,12 +83,12 @@ public class TelaJogo extends JFrame implements MouseListener{
 		jogo.add(mov[2]);
 		jogo.add(mov[3]);
 		
-			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {
-			if(teste.deslocamento().getTabuleiro().getNumeros().get(i) == null) {
+			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
+			if(teste.deslocamento().getTabuleiro().getLetras().get(i) == null) {
 				matriz.add(botoes[i] = new JButton(""));
 			}
 			else {
-				matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getNumeros().get(i))));
+				matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getLetras().get(i))));
 			}
 			botoes[i].setBackground(new Color(0,0,0));
 			botoes[i].setForeground(new Color(255,153,0));
@@ -94,7 +97,7 @@ public class TelaJogo extends JFrame implements MouseListener{
 			
 			//dica
 			logo = new ImageIcon(getClass().getResource("lampada001.jpg"));	
-			resultado = new ImageIcon(getClass().getResource("puzzle3x3.jpg"));	
+			resultado = new ImageIcon(getClass().getResource("puzzleletras.png"));	
 			
 			dica = new JButton();
 			dica.setBounds(720, 90, 100, 100);
@@ -122,12 +125,12 @@ public class TelaJogo extends JFrame implements MouseListener{
 			teste.deslocamento().mudanças('w');
 			matriz.removeAll();
 			//matriz.repaint();
-			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {
-				if(teste.deslocamento().getTabuleiro().getNumeros().get(i) == null) {
+			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
+				if(teste.deslocamento().getTabuleiro().getLetras().get(i) == null) {
 					matriz.add(botoes[i] = new JButton(""));
 				}
 				else {
-					matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getNumeros().get(i))));
+					matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getLetras().get(i))));
 				}
 				botoes[i].setBackground(new Color(0,0,0));
 				botoes[i].setForeground(new Color(255,153,0));
@@ -142,12 +145,12 @@ public class TelaJogo extends JFrame implements MouseListener{
 			teste.deslocamento().mudanças('a');
 			matriz.removeAll();
 			//matriz.repaint();
-			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {
-				if(teste.deslocamento().getTabuleiro().getNumeros().get(i) == null) {
+			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
+				if(teste.deslocamento().getTabuleiro().getLetras().get(i) == null) {
 					matriz.add(botoes[i] = new JButton(""));
 				}
 				else {
-					matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getNumeros().get(i))));
+					matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getLetras().get(i))));
 				}
 				botoes[i].setBackground(new Color(0,0,0));
 				botoes[i].setForeground(new Color(255,153,0));
@@ -162,12 +165,12 @@ public class TelaJogo extends JFrame implements MouseListener{
 			teste.deslocamento().mudanças('d');
 			matriz.removeAll();
 			//matriz.repaint();
-			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {
-				if(teste.deslocamento().getTabuleiro().getNumeros().get(i) == null) {
+			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
+				if(teste.deslocamento().getTabuleiro().getLetras().get(i) == null) {
 					matriz.add(botoes[i] = new JButton(""));
 				}
 				else {
-					matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getNumeros().get(i))));
+					matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getLetras().get(i))));
 				}
 				botoes[i].setBackground(new Color(0,0,0));
 				botoes[i].setForeground(new Color(255,153,0));
@@ -182,12 +185,12 @@ public class TelaJogo extends JFrame implements MouseListener{
 			teste.deslocamento().mudanças('s');
 			matriz.removeAll();
 			//matriz.repaint();
-			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {
-				if(teste.deslocamento().getTabuleiro().getNumeros().get(i) == null) {
+			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
+				if(teste.deslocamento().getTabuleiro().getLetras().get(i) == null) {
 					matriz.add(botoes[i] = new JButton(""));
 				}
 				else {
-					matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getNumeros().get(i))));
+					matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getLetras().get(i))));
 				}
 				botoes[i].setBackground(new Color(0,0,0));
 				botoes[i].setForeground(new Color(255,153,0));
@@ -198,7 +201,7 @@ public class TelaJogo extends JFrame implements MouseListener{
 	}	
 }
 	public static void main(String[] args) {
-		TelaJogo teste = new TelaJogo();
+		TelaJogoL teste = new TelaJogoL();
 		teste.Teste();
 	}
 	@Override

@@ -23,10 +23,11 @@ public class TiposNumeros extends JFrame {
 	private JButton facil; 
 	private JButton medio; 
 	private JButton dificil; 
- 
+	
+	TelaJogo jogo = new TelaJogo();
   
- public void criarNumeros() { 
-	 	
+ public void criarNumeros() {
+	 
 	 	tela.setSize(950, 750);
 		tela.getContentPane().setBackground(new Color(51,153,255));
 		
@@ -60,7 +61,8 @@ public class TiposNumeros extends JFrame {
   facil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
-    new TelaJogo().setVisible(true);  
+	   jogo.getTeste().deslocamento().getTabuleiro().setDefinir(3);
+	   jogo.Teste();
    }  
   });  
    
@@ -70,8 +72,8 @@ public class TiposNumeros extends JFrame {
   medio.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
 	setVisible(false);
-    new PaginaInicial().setVisible(true);  
-   }  
+	jogo.getTeste().deslocamento().getTabuleiro().setDefinir(4);
+	   jogo.Teste();   }  
   });  
    
   //dificil 
@@ -80,8 +82,8 @@ public class TiposNumeros extends JFrame {
   dificil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
-    new PaginaInicial().setVisible(true);  
-   }  
+	   jogo.getTeste().deslocamento().getTabuleiro().setDefinir(5);
+	   jogo.Teste();   }  
   });  
   
 	tela.add(inicial); 

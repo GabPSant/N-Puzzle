@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import ui.finale.PaginaInicial; 
 import ui.finale.TiposNumeros; 
 import ui.finale.TiposLetras; 
-import ui.finale.TiposImagens; 
+
  
 public class Generos extends JFrame { 
 	
@@ -22,7 +22,6 @@ public class Generos extends JFrame {
 	private JButton voltar; 
 	private JButton numeros; 
 	private JButton letras; 
-	private JButton imagens; 
   
  public void criarTudo() { 
 	 
@@ -36,7 +35,6 @@ public class Generos extends JFrame {
 		voltar = new JButton("Voltar"); 
 		numeros = new JButton("Números"); 
 		letras = new JButton("Letras"); 
-		imagens = new JButton("Imagens"); 
    
   //inicial 
   inicial.setFont(new Font("Arial", Font.BOLD, 30));  
@@ -72,16 +70,6 @@ public class Generos extends JFrame {
 	new TiposLetras().setVisible(true);  
    }  
   });  
-   
-  //imagens 
-  imagens.setBounds(90, 30, 100, 100); 
-  imagens.setFont(new Font("Arial", Font.BOLD, 30));  
-  imagens.addActionListener(new ActionListener () {  
-   public void actionPerformed (ActionEvent e) {
-	   setVisible(false);
-    new TiposImagens().setVisible(true);  
-   }  
-  });  
   
 	tela.add(inicial); 
 	tela.add(voltar);
@@ -95,7 +83,6 @@ public class Generos extends JFrame {
 	painel.setLocation(350, 300); 
 	painel.add(numeros);
 	painel.add(letras);
-	painel.add(imagens);
  
  } 
   

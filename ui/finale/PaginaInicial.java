@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel; 
 import javax.swing.JPanel; 
 
-import ui.finale.Regras; 
 import ui.finale.Generos; 
 
 public class PaginaInicial extends JFrame { 
@@ -21,8 +20,6 @@ public class PaginaInicial extends JFrame {
 	JPanel painel = new JPanel();
 	private JLabel inicial; 
 	private JButton generos; 
-	private JButton regras; 
-
 
 	public void criarTudo() { 
 		
@@ -34,8 +31,6 @@ public class PaginaInicial extends JFrame {
 		
 		inicial = new JLabel("Bem-Vindo ao Puzzle Dr. E.Carneiro"); 
 		generos = new JButton("Iniciar"); 
-		regras = new JButton("Regras");  
-		regras.setToolTipText("SLo");
  
 		//inicial 
 		inicial.setFont(new Font("Arial", Font.BOLD, 30));  
@@ -53,15 +48,6 @@ public class PaginaInicial extends JFrame {
 			}  
 		});  
  
-		//regras 
-		regras.setBounds(60, 200, 110, 70);  
-		regras.setFont(new Font("Arial", Font.BOLD, 30));  
-		regras.addActionListener(new ActionListener () {  
-			public void actionPerformed (ActionEvent e) {  
-				setVisible(false);
-				new Regras().setVisible(true);  
-			}  
-		});  
 
 		tela.add(inicial); 
 		tela.add(painel);
@@ -73,7 +59,6 @@ public class PaginaInicial extends JFrame {
 		painel.setSize(300, 300); 
 		painel.setLocation(300, 300); 
 		painel.add(generos);
-		painel.add(regras);
 		
 	} 
 

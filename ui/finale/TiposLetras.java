@@ -11,7 +11,7 @@ import javax.swing.JPanel;
  
 import ui.finale.PaginaInicial; 
 import ui.finale.Generos; 
-import ui.grafico.letras.lvl1.InterfaceLetraslvl1; 
+import ui.frame.tela.jogo.TelaJogoL; 
  
 public class TiposLetras extends JFrame { 
 	
@@ -22,6 +22,8 @@ public class TiposLetras extends JFrame {
 	private JButton facil; 
 	private JButton medio; 
 	private JButton dificil; 
+	
+	TelaJogoL jogol = new TelaJogoL();
  
   
  public void criarLetras() { 
@@ -59,7 +61,9 @@ public class TiposLetras extends JFrame {
   facil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) { 
 	   setVisible(false);
-    new InterfaceLetraslvl1().setVisible(true);  
+	   jogol.getTeste().deslocamento().getTabuleiro().setLimite('J');
+	   jogol.getTeste().deslocamento().setDefinir(3);
+	   jogol.Teste();
    }  
   });  
    
@@ -69,7 +73,9 @@ public class TiposLetras extends JFrame {
   medio.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
-    new PaginaInicial().setVisible(true);  
+	   jogol.getTeste().deslocamento().getTabuleiro().setLimite('Q');
+	   jogol.getTeste().deslocamento().setDefinir(4);
+	   jogol.Teste(); 
    }  
   });  
    
@@ -79,7 +85,9 @@ public class TiposLetras extends JFrame {
   dificil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
-    new PaginaInicial().setVisible(true);  
+	   jogol.getTeste().deslocamento().getTabuleiro().setLimite('Z');
+	   jogol.getTeste().deslocamento().setDefinir(5);
+	   jogol.Teste();
    }  
   });  
   
