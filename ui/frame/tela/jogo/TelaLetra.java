@@ -2,10 +2,13 @@ package ui.frame.tela.jogo;
 
 import puzzle.nivel.NivelLetra;
 import ui.finale.Generos;
+import ui.finale.TiposNumeros;
 import puzzle.deslocamento.DeslocamentoLetra;
 import puzzle.erros.ErroForaLimite;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.JButton;
@@ -31,8 +34,8 @@ public class TelaLetra extends JFrame implements MouseListener{
 	NivelLetra teste = new NivelLetra();
 	JFrame jogo = new JFrame();
 	JPanel matriz = new JPanel();
-	JButton[] mov = new JButton[4];
 	JButton[] botoes;
+	JLabel movimentos = new JLabel();
 	GridLayout começo;
 	Action Subir;
 	Action Esquerda;
@@ -42,9 +45,7 @@ public class TelaLetra extends JFrame implements MouseListener{
 	JButton dica;
 	ImageIcon resultado;
 	ImageIcon logo;
-	
-	JButton maluco;
-	
+		
 	public NivelLetra getTeste() {
 		return teste;
 	}
@@ -60,7 +61,7 @@ public class TelaLetra extends JFrame implements MouseListener{
 		Subir = new Subir();
 		Esquerda = new Esquerda();
 		Direita = new Direita();
-		Descer = new Descer();
+		Descer = new Descer(); 
 		
 		this.botoes = new JButton[(int)Math.pow(teste.deslocamento().getTabuleiro().getLimite(), 2)];
 		
@@ -69,22 +70,9 @@ public class TelaLetra extends JFrame implements MouseListener{
 		
 		matriz.setBounds(260, 50, 370, 370);
 		matriz.setBackground(new Color(51,153,255));
-		mov[0] = new JButton("^");
-	    mov[1] = new JButton("<");
-		mov[2] = new JButton(">");
-		mov[3] = new JButton("\\/");
 		
-		mov[0].setBounds(750, 450, 50, 50);
-		mov[1].setBounds(680, 515, 50, 50);
-		mov[2].setBounds(820, 515, 50, 50);
-		mov[3].setBounds(750, 580, 50, 50);
-		for(int i = 0; i<4; i++) {
-			mov[i].setFont(new Font("Times New Roman",Font.BOLD,15));
-		}
-		jogo.add(mov[0]);
-		jogo.add(mov[1]);
-		jogo.add(mov[2]);
-		jogo.add(mov[3]);
+		movimentos.setBounds(40, 10, 150, 50);
+		movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 		
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
 			if(teste.deslocamento().getTabuleiro().getLetras().get(i) == null) {
@@ -108,41 +96,14 @@ public class TelaLetra extends JFrame implements MouseListener{
 			dica.setOpaque(true);
 			dica.addMouseListener(this);
 			
-			maluco = new JButton();
-			maluco.setBounds(720, 350, 100, 100);
-			//maluco.setIcon(logo);
-			maluco.addActionListener(new ActionListener () {  
-				public void actionPerformed (ActionEvent e) {
-					
-					if(teste.deslocamento().getDefinir() == 3) {
-						
-					   teste.deslocamento().getTabuleiro().setLimite('J');
-					   teste.deslocamento().setDefinir(3);
-					   Teste();
-					   
-					}else if(teste.deslocamento().getDefinir() == 4) {
-						
-						teste.deslocamento().getTabuleiro().setLimite('Q');
-						teste.deslocamento().setDefinir(4);
-						Teste();
-						
-					}else if(teste.deslocamento().getDefinir() == 5) {
-						
-						teste.deslocamento().getTabuleiro().setLimite('Z');
-						teste.deslocamento().setDefinir(5);
-						Teste();
-					}
-					   
-				}  			 
-			});  
-			
 			jogo.add(matriz);
 			jogo.setLayout(null);
 			jogo.setVisible(true);
 			jogo.add(dica);
-			jogo.add(maluco);
 			jogo.setDefaultCloseOperation(EXIT_ON_CLOSE); 
 			jogo.setLocationRelativeTo(null); 
+			jogo.add(movimentos);
+			
 			matriz.getInputMap().put(KeyStroke.getKeyStroke("W"), "Subir");
 			matriz.getActionMap().put("Subir", Subir);
 			matriz.getInputMap().put(KeyStroke.getKeyStroke("A"), "Esquerda");
@@ -159,6 +120,7 @@ public class TelaLetra extends JFrame implements MouseListener{
 			} catch (ErroForaLimite e1) {
 				System.out.println("Esta fora do limite");
 			}
+			movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
@@ -183,6 +145,7 @@ public class TelaLetra extends JFrame implements MouseListener{
 			} catch (ErroForaLimite e1) {
 				System.out.println("Esta fora do limite");
 			}
+			movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
@@ -207,6 +170,7 @@ public class TelaLetra extends JFrame implements MouseListener{
 			} catch (ErroForaLimite e1) {
 				System.out.println("Esta fora do limite");
 			}
+			movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
@@ -222,6 +186,29 @@ public class TelaLetra extends JFrame implements MouseListener{
 			}
 			jogo.setVisible(false);
 			jogo.setVisible(true);
+			
+			if(teste.deslocamento().getDefinir() == 3) {
+				if(teste.deslocamento().Facil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+				}
+			}else if(teste.deslocamento().getDefinir() == 4){
+				if(teste.deslocamento().Medio()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+				}
+			}else if(teste.deslocamento().getDefinir() == 5) {
+				if(teste.deslocamento().Dificil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
 	}
 }
 	public class Descer extends AbstractAction{
@@ -231,6 +218,7 @@ public class TelaLetra extends JFrame implements MouseListener{
 			} catch (ErroForaLimite e1) {
 				System.out.println("Esta fora do limite");
 			}
+			movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {

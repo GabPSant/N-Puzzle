@@ -53,6 +53,9 @@ public class DeslocamentoNumero {
 				   && numero.getNumeros().get(24) == null;
 		return vitoria[2];
 		}
+	public int getObservador() {
+		return observador;
+	}
 	public void setMover(String mover) {
 		this.mover = mover;
 	}

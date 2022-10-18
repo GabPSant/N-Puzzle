@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton; 
 import javax.swing.JFrame; 
 import javax.swing.JLabel; 
-import javax.swing.JPanel; 
+import javax.swing.JPanel;
+import javax.swing.JCheckBox;
  
 import ui.finale.PaginaInicial; 
 import ui.finale.Generos; 
@@ -18,6 +19,8 @@ public class TiposNumeros extends JFrame {
 	
 	JFrame tela = new JFrame();
 	JPanel painel = new JPanel();
+	JCheckBox maluco = new JCheckBox("Maluco");
+	
 	private JLabel inicial; 
 	private JButton voltar; 
 	private JButton facil; 
@@ -33,12 +36,14 @@ public class TiposNumeros extends JFrame {
 		
 		painel.setBounds(260, 50, 370, 370);
 		painel.setBackground(new Color(51,153,255));
+		
+		maluco.setBounds(380, 600, 80, 40);
 
 		inicial = new JLabel("Nível Números"); 
 		voltar = new JButton("Voltar"); 
 		facil = new JButton("Facil"); 
 		medio = new JButton("Médio"); 
-		dificil = new JButton("Dificil"); 
+		dificil = new JButton("Dificil");
    
   //inicial 
   inicial.setFont(new Font("Arial", Font.BOLD, 30));  
@@ -61,6 +66,10 @@ public class TiposNumeros extends JFrame {
   facil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
+	   if(maluco.isSelected()) {
+		   jogo.getTeste().deslocamento().setMaluco(true);
+		   jogo.getTeste().deslocamento().setGiro(8);
+	   }
 	   jogo.getTeste().deslocamento().getTabuleiro().setDefinir(3);
 	   jogo.Teste();
    }  
@@ -72,16 +81,24 @@ public class TiposNumeros extends JFrame {
   medio.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
 	   	setVisible(false);
+	   	if(maluco.isSelected()) {
+			   jogo.getTeste().deslocamento().setMaluco(true);
+			   jogo.getTeste().deslocamento().setGiro(7);
+		   }
 		jogo.getTeste().deslocamento().getTabuleiro().setDefinir(4);
 		jogo.Teste();   }  
   });  
    
   //dificil 
-  dificil.setBounds(90, 90, 100, 100); 
+  dificil.setBounds(60, 60, 100, 100); 
   dificil.setFont(new Font("Arial", Font.BOLD, 30));  
   dificil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
+	   if(maluco.isSelected()) {
+		   jogo.getTeste().deslocamento().setMaluco(true);
+		   jogo.getTeste().deslocamento().setGiro(6);
+	   }
 	   jogo.getTeste().deslocamento().getTabuleiro().setDefinir(5);
 	   jogo.Teste();   }  
   });  
@@ -99,6 +116,7 @@ public class TiposNumeros extends JFrame {
 	painel.add(facil);
 	painel.add(medio);
 	painel.add(dificil);
+	tela.add(maluco);
  
  } 
   

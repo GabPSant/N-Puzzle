@@ -1,17 +1,22 @@
 package ui.frame.tela.jogo;
 import puzzle.nivel.NivelNumero;
+import ui.finale.Generos;
+import ui.finale.TiposNumeros;
 import puzzle.deslocamento.DeslocamentoNumero;
 import puzzle.erros.ErroForaLimite;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 import javax.swing.JButton;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
-import javax.swing.SwingUtilities;
+
 
 import java.awt.Color;
 import java.awt.Font;
@@ -29,11 +34,10 @@ public class TelaNumero extends JFrame implements MouseListener{
 	private int posB1;
 	private int posB2;
 	private int tempB2;
-	private boolean conquista;
 	NivelNumero teste = new NivelNumero();
 	JFrame jogo = new JFrame();
+	JLabel movimentos = new JLabel();
 	JPanel matriz = new JPanel();
-	JButton[] mov = new JButton[4];
 	JButton[] botoes;
 	GridLayout começo;
 	Action Subir;
@@ -44,13 +48,11 @@ public class TelaNumero extends JFrame implements MouseListener{
 	JButton dica;
 	ImageIcon resultado;
 	ImageIcon logo;
-	
+		
 	public NivelNumero getTeste() {
 		return teste;
 	}
-	public void setConquista(boolean conquista) {
-		this.conquista = conquista;
-	}
+	
 	public void Teste() {
 		// Metodos para alterar o tabuleiro
 		teste.deslocamento().getTabuleiro().Calculo();
@@ -61,6 +63,7 @@ public class TelaNumero extends JFrame implements MouseListener{
 		Direita = new Direita();
 		Descer = new Descer();
 		
+		
 		this.botoes = new JButton[(int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2)];
 		
 		jogo.setSize(950, 750);
@@ -68,22 +71,9 @@ public class TelaNumero extends JFrame implements MouseListener{
 		
 		matriz.setBounds(260, 50, 370, 370);
 		matriz.setBackground(new Color(51,153,255));
-		mov[0] = new JButton("^");
-	    mov[1] = new JButton("<");
-		mov[2] = new JButton(">");
-		mov[3] = new JButton("\\/");
 		
-		mov[0].setBounds(750, 450, 50, 50);
-		mov[1].setBounds(680, 515, 50, 50);
-		mov[2].setBounds(820, 515, 50, 50);
-		mov[3].setBounds(750, 580, 50, 50);
-		for(int i = 0; i<4; i++) {
-			mov[i].setFont(new Font("Times New Roman",Font.BOLD,15));
-		}
-		jogo.add(mov[0]);
-		jogo.add(mov[1]);
-		jogo.add(mov[2]);
-		jogo.add(mov[3]);
+		movimentos.setBounds(40, 10, 150, 50);
+		movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 		
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {
 			if(teste.deslocamento().getTabuleiro().getNumeros().get(i) == null) {
@@ -113,6 +103,8 @@ public class TelaNumero extends JFrame implements MouseListener{
 			jogo.add(dica);
 			jogo.setDefaultCloseOperation(EXIT_ON_CLOSE); 
 			jogo.setLocationRelativeTo(null); 
+			jogo.add(movimentos);
+			
 			matriz.getInputMap().put(KeyStroke.getKeyStroke("W"), "Subir");
 			matriz.getActionMap().put("Subir", Subir);
 			matriz.getInputMap().put(KeyStroke.getKeyStroke("A"), "Esquerda");
@@ -129,6 +121,7 @@ public class TelaNumero extends JFrame implements MouseListener{
 			} catch (ErroForaLimite e1) {
 				System.out.println("Esta fora do limite");
 			}
+			movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {
@@ -180,6 +173,7 @@ public class TelaNumero extends JFrame implements MouseListener{
 			} catch (ErroForaLimite e1) {
 				System.out.println("Esta fora do limite");
 			}
+			movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {
@@ -207,6 +201,7 @@ public class TelaNumero extends JFrame implements MouseListener{
 			} catch (ErroForaLimite e1) {
 				System.out.println("Esta fora do limite");
 			}
+			movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {
@@ -216,6 +211,7 @@ public class TelaNumero extends JFrame implements MouseListener{
 				else {
 					matriz.add(botoes[i]= new JButton(String.valueOf(teste.deslocamento().getTabuleiro().getNumeros().get(i))));
 				}
+				
 				botoes[i].setBackground(new Color(0,0,0));
 				botoes[i].setForeground(new Color(255,153,0));
 				botoes[i].repaint();
@@ -234,6 +230,7 @@ public class TelaNumero extends JFrame implements MouseListener{
 			} catch (ErroForaLimite e1) {
 				System.out.println("Esta fora do limite");
 			}
+			movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {

@@ -3,14 +3,12 @@ package puzzle.deslocamento;
 import java.util.Scanner;
 import puzzle.base.BaseLetra;
 import java.util.Collections;
-import ui.frame.tela.jogo.TelaNumero;
 import puzzle.erros.ErroForaLimite;
 
 public class DeslocamentoLetra{
 	static DeslocamentoLetra controle = new DeslocamentoLetra();
 	Scanner console = new Scanner(System.in);
 	BaseLetra letra = new BaseLetra();
-	TelaNumero comandos = new TelaNumero();
 	private String mover;// Vai receber o input do usuário;
 	private int observador;
 	private int giro;
@@ -56,7 +54,9 @@ public class DeslocamentoLetra{
 				   && letra.getLetras().get(24) == null;
 		return vitoria[2];
 		}
-	
+	public int getObservador() {
+		return observador;
+	}
 	public void setDefinir(int definir) {
     	this.definir = definir;
     }

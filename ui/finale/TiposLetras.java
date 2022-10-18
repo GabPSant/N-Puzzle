@@ -4,7 +4,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent; 
 import java.awt.event.ActionListener; 
  
-import javax.swing.JButton; 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame; 
 import javax.swing.JLabel; 
 import javax.swing.JPanel; 
@@ -17,6 +18,7 @@ public class TiposLetras extends JFrame {
 	
 	JFrame tela = new JFrame();
 	JPanel painel = new JPanel();
+	JCheckBox maluco = new JCheckBox("Maluco");
 	private JLabel inicial; 
 	private JButton voltar; 
 	private JButton facil; 
@@ -33,6 +35,8 @@ public class TiposLetras extends JFrame {
 		
 		painel.setBounds(260, 50, 370, 370);
 		painel.setBackground(new Color(51,153,255));
+		
+		maluco.setBounds(380, 600, 80, 40);
    
 		inicial = new JLabel("Nível Letras"); 
 		voltar = new JButton("Voltar"); 
@@ -61,6 +65,10 @@ public class TiposLetras extends JFrame {
   facil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) { 
 	   setVisible(false);
+	   if(maluco.isSelected()) {
+		   jogol.getTeste().deslocamento().setMaluco(true);
+		   jogol.getTeste().deslocamento().setGiro(8);
+	   }
 	   jogol.getTeste().deslocamento().getTabuleiro().setLimite('J');
 	   jogol.getTeste().deslocamento().setDefinir(3);
 	   jogol.Teste();
@@ -73,6 +81,10 @@ public class TiposLetras extends JFrame {
   medio.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
+	   if(maluco.isSelected()) {
+		   jogol.getTeste().deslocamento().setMaluco(true);
+		   jogol.getTeste().deslocamento().setGiro(8);
+	   }
 	   jogol.getTeste().deslocamento().getTabuleiro().setLimite('Q');
 	   jogol.getTeste().deslocamento().setDefinir(4);
 	   jogol.Teste(); 
@@ -85,6 +97,10 @@ public class TiposLetras extends JFrame {
   dificil.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
+	   if(maluco.isSelected()) {
+		   jogol.getTeste().deslocamento().setMaluco(true);
+		   jogol.getTeste().deslocamento().setGiro(8);
+	   }
 	   jogol.getTeste().deslocamento().getTabuleiro().setLimite('Z');
 	   jogol.getTeste().deslocamento().setDefinir(5);
 	   jogol.Teste();
@@ -104,7 +120,7 @@ public class TiposLetras extends JFrame {
 	painel.add(facil);
 	painel.add(medio);
 	painel.add(dificil);
- 
+	tela.add(maluco);
  } 
   
  public TiposLetras() { 

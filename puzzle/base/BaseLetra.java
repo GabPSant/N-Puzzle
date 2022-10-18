@@ -3,7 +3,7 @@ package puzzle.base;
 import java.util.ArrayList; 
 import java.util.Collections;
 
-public class BaseLetra {
+public class BaseLetra implements Base{
     private char limite;
     ArrayList <Character> letras = new ArrayList <Character>();
 	

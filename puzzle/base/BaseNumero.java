@@ -3,7 +3,7 @@ package puzzle.base;
 import java.util.ArrayList; 
 import java.util.Collections; 
 
-public class BaseNumero {
+public class BaseNumero implements Base{
 	private int definir;
 	private ArrayList<Integer> numeros = new ArrayList<Integer>();
 	
