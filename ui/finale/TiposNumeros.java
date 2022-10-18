@@ -62,7 +62,6 @@ public class TiposNumeros extends JFrame {
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
 	   jogo.getTeste().deslocamento().getTabuleiro().setDefinir(3);
-	   jogo.setConquista(jogo.getTeste().deslocamento().Facil());
 	   jogo.Teste();
    }  
   });  
@@ -72,10 +71,9 @@ public class TiposNumeros extends JFrame {
   medio.setFont(new Font("Arial", Font.BOLD, 30));  
   medio.addActionListener(new ActionListener () {  
    public void actionPerformed (ActionEvent e) {  
-	setVisible(false);
-	jogo.getTeste().deslocamento().getTabuleiro().setDefinir(4);
-	jogo.setConquista(jogo.getTeste().deslocamento().Medio());
-	   jogo.Teste();   }  
+	   	setVisible(false);
+		jogo.getTeste().deslocamento().getTabuleiro().setDefinir(4);
+		jogo.Teste();   }  
   });  
    
   //dificil 
@@ -85,7 +83,6 @@ public class TiposNumeros extends JFrame {
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
 	   jogo.getTeste().deslocamento().getTabuleiro().setDefinir(5);
-	   jogo.setConquista(jogo.getTeste().deslocamento().Dificil());
 	   jogo.Teste();   }  
   });  
   

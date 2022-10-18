@@ -4,6 +4,7 @@ import puzzle.deslocamento.DeslocamentoNumero;
 import puzzle.erros.ErroForaLimite;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.JButton;
@@ -146,8 +147,32 @@ public class TelaNumero extends JFrame implements MouseListener{
 			/*if(conquista) {
 				
 			}*/
+			
+			if(teste.deslocamento().getTabuleiro().getDefinir() == 3) {
+				if(teste.deslocamento().Facil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+				}
+			}else if(teste.deslocamento().getTabuleiro().getDefinir() == 4){
+				if(teste.deslocamento().Medio()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+				}
+			}else if(teste.deslocamento().getTabuleiro().getDefinir() == 5) {
+				if(teste.deslocamento().Dificil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
 		}
 	}
+	
 	public class Esquerda extends AbstractAction{
 		public void actionPerformed(ActionEvent e) {
 			try {

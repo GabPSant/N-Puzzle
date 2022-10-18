@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 import ui.finale.PaginaInicial; 
 import ui.finale.TiposNumeros; 
 import ui.finale.TiposLetras; 
-
  
 public class Generos extends JFrame { 
 	

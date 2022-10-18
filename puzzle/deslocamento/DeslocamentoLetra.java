@@ -141,11 +141,13 @@ public class DeslocamentoLetra{
 			observador ++;
 			System.out.println("Nº de Movimentos: " + observador);
 		}
+		
 		if(maluco) {
 			if(observador%giro == 0) {// Ainda precisa melhorar para ficar menos estaticos;
 				Collections.shuffle(letra.getLetras());
 				}
 		}
+		
 		System.out.println(letra.getLetras());
 	}
 	

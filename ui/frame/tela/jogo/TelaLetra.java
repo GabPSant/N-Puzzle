@@ -1,6 +1,7 @@
 package ui.frame.tela.jogo;
 
 import puzzle.nivel.NivelLetra;
+import ui.finale.Generos;
 import puzzle.deslocamento.DeslocamentoLetra;
 import puzzle.erros.ErroForaLimite;
 
@@ -20,6 +21,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Collections;
 import java.awt.event.KeyEvent;
 import java.awt.GridLayout;
 
@@ -41,9 +43,12 @@ public class TelaLetra extends JFrame implements MouseListener{
 	ImageIcon resultado;
 	ImageIcon logo;
 	
+	JButton maluco;
+	
 	public NivelLetra getTeste() {
 		return teste;
 	}
+
 	
 	public void Teste() {
 		// Metodos para alterar o tabuleiro
@@ -103,10 +108,39 @@ public class TelaLetra extends JFrame implements MouseListener{
 			dica.setOpaque(true);
 			dica.addMouseListener(this);
 			
+			maluco = new JButton();
+			maluco.setBounds(720, 350, 100, 100);
+			//maluco.setIcon(logo);
+			maluco.addActionListener(new ActionListener () {  
+				public void actionPerformed (ActionEvent e) {
+					
+					if(teste.deslocamento().getDefinir() == 3) {
+						
+					   teste.deslocamento().getTabuleiro().setLimite('J');
+					   teste.deslocamento().setDefinir(3);
+					   Teste();
+					   
+					}else if(teste.deslocamento().getDefinir() == 4) {
+						
+						teste.deslocamento().getTabuleiro().setLimite('Q');
+						teste.deslocamento().setDefinir(4);
+						Teste();
+						
+					}else if(teste.deslocamento().getDefinir() == 5) {
+						
+						teste.deslocamento().getTabuleiro().setLimite('Z');
+						teste.deslocamento().setDefinir(5);
+						Teste();
+					}
+					   
+				}  			 
+			});  
+			
 			jogo.add(matriz);
 			jogo.setLayout(null);
 			jogo.setVisible(true);
 			jogo.add(dica);
+			jogo.add(maluco);
 			jogo.setDefaultCloseOperation(EXIT_ON_CLOSE); 
 			jogo.setLocationRelativeTo(null); 
 			matriz.getInputMap().put(KeyStroke.getKeyStroke("W"), "Subir");
@@ -221,6 +255,7 @@ public class TelaLetra extends JFrame implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 	@Override
