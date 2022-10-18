@@ -1,7 +1,8 @@
 package ui.frame.tela.jogo;
 
 import puzzle.nivel.NivelLetra;
-import puzzle.deslocamento.DeslocamentoL; 
+import puzzle.deslocamento.DeslocamentoLetra;
+import puzzle.erros.ErroForaLimite;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -23,11 +24,8 @@ import java.awt.event.KeyEvent;
 import java.awt.GridLayout;
 
 
-public class TelaJogoL extends JFrame implements MouseListener{
-	static TelaJogoL sistema = new TelaJogoL();
-	private int posB1;
-	private int posB2;
-	private int tempB2;
+public class TelaLetra extends JFrame implements MouseListener{
+	static TelaLetra sistema = new TelaLetra();
 	NivelLetra teste = new NivelLetra();
 	JFrame jogo = new JFrame();
 	JPanel matriz = new JPanel();
@@ -122,7 +120,11 @@ public class TelaJogoL extends JFrame implements MouseListener{
 	}
 	public class Subir extends AbstractAction{
 		public void actionPerformed(ActionEvent e) {
-			teste.deslocamento().mudanças('w');
+			try {
+				teste.deslocamento().mudanças('w');
+			} catch (ErroForaLimite e1) {
+				System.out.println("Esta fora do limite");
+			}
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
@@ -142,7 +144,11 @@ public class TelaJogoL extends JFrame implements MouseListener{
 	}
 	public class Esquerda extends AbstractAction{
 		public void actionPerformed(ActionEvent e) {
-			teste.deslocamento().mudanças('a');
+			try {
+				teste.deslocamento().mudanças('a');
+			} catch (ErroForaLimite e1) {
+				System.out.println("Esta fora do limite");
+			}
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
@@ -162,7 +168,11 @@ public class TelaJogoL extends JFrame implements MouseListener{
 }
 	public class Direita extends AbstractAction{
 		public void actionPerformed(ActionEvent e) {
-			teste.deslocamento().mudanças('d');
+			try {
+				teste.deslocamento().mudanças('d');
+			} catch (ErroForaLimite e1) {
+				System.out.println("Esta fora do limite");
+			}
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
@@ -182,7 +192,11 @@ public class TelaJogoL extends JFrame implements MouseListener{
 }
 	public class Descer extends AbstractAction{
 		public void actionPerformed(ActionEvent e) {
-			teste.deslocamento().mudanças('s');
+			try {
+				teste.deslocamento().mudanças('s');
+			} catch (ErroForaLimite e1) {
+				System.out.println("Esta fora do limite");
+			}
 			matriz.removeAll();
 			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getDefinir(), 2); i++) {
@@ -201,7 +215,7 @@ public class TelaJogoL extends JFrame implements MouseListener{
 	}	
 }
 	public static void main(String[] args) {
-		TelaJogoL teste = new TelaJogoL();
+		TelaLetra teste = new TelaLetra();
 		teste.Teste();
 	}
 	@Override

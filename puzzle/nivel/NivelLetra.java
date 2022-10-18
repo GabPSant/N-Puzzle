@@ -1,12 +1,12 @@
 package puzzle.nivel;
 import puzzle.base.BaseLetra;
-import puzzle.deslocamento.DeslocamentoL;
+import puzzle.deslocamento.DeslocamentoLetra;
 
 public class NivelLetra extends BaseLetra {
 	
-	static DeslocamentoL des = new DeslocamentoL();
+	static DeslocamentoLetra des = new DeslocamentoLetra();
 	
-	public DeslocamentoL deslocamento() {
+	public DeslocamentoLetra deslocamento() {
 		return des;
 	}
 	

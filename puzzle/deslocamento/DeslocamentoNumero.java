@@ -1,15 +1,16 @@
 package puzzle.deslocamento;
+import puzzle.erros.ErroForaLimite;
 
 import java.util.Scanner;
 import puzzle.base.BaseNumero;
 import java.util.Collections;
-import ui.frame.tela.jogo.TelaJogo;
+import ui.frame.tela.jogo.TelaNumero;
 
-public class DeslocamentoNumero{
+public class DeslocamentoNumero {
 	static DeslocamentoNumero controle = new DeslocamentoNumero();
 	Scanner console = new Scanner(System.in);
 	BaseNumero numero = new BaseNumero();
-	TelaJogo comandos = new TelaJogo();
+	TelaNumero comandos = new TelaNumero();
 	private String mover;// Vai receber o input do usuário;
 	private int observador;
 	private int giro;
@@ -76,33 +77,53 @@ public class DeslocamentoNumero{
 	public void setGiro(int giro) {
 		this.giro = giro;
 	}
-	public void mudanças(char usado) {
+	public void mudanças(char usado) throws ErroForaLimite{
 		int posX = numero.getNumeros().indexOf(null); // procura a possição atual do valor null
 		int tempP;// usado como armazenador temporario do valor posição adjacente
 		int posP;// representa a posição do valor ao qual vai trocar com null
 		if(usado == 'w') {
 			posP = posX - numero.getDefinir();
+			if(posP<0) {
+				throw new ErroForaLimite();
+			}
+			else {
 			tempP = numero.getNumeros().get(posP);
 			numero.getNumeros().set(posP, null);
 			numero.getNumeros().set(posX, tempP);
+			}
 		}
 		else if(usado == 'a') {
 			posP = posX - 1;
+			if(posP<0 || posX%numero.getDefinir() == 0) {
+				throw new ErroForaLimite();
+			}
+			else {
 			tempP = numero.getNumeros().get(posP);
 			numero.getNumeros().set(posP, null);
 			numero.getNumeros().set(posX, tempP);
+			}
 		}
 		else if(usado == 'd') {
 			posP = posX + 1;
+			if(posP>(int)Math.pow(numero.getDefinir(), 2) || posP%numero.getDefinir() == 0) {
+				throw new ErroForaLimite();
+			}
+			else {
 			tempP = numero.getNumeros().get(posP);
 			numero.getNumeros().set(posP, null);
 			numero.getNumeros().set(posX, tempP);
+			}
 		}
 		else if(usado == 's') {
 			posP = posX + numero.getDefinir();
+			if(posP>(int)Math.pow(numero.getDefinir(), 2)) {
+				throw new ErroForaLimite();
+			}
+			else {
 			tempP = numero.getNumeros().get(posP);
 			numero.getNumeros().set(posP, null);
 			numero.getNumeros().set(posX, tempP);
+			}
 		}
 		if(usado == 'w' || usado == 'a' || usado == 'd' || usado == 's') {
 			observador ++;

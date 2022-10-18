@@ -11,7 +11,7 @@ import javax.swing.JPanel;
  
 import ui.finale.PaginaInicial; 
 import ui.finale.Generos; 
-import ui.frame.tela.jogo.TelaJogoL; 
+import ui.frame.tela.jogo.TelaLetra; 
  
 public class TiposLetras extends JFrame { 
 	
@@ -23,7 +23,7 @@ public class TiposLetras extends JFrame {
 	private JButton medio; 
 	private JButton dificil; 
 	
-	TelaJogoL jogol = new TelaJogoL();
+	TelaLetra jogol = new TelaLetra();
  
   
  public void criarLetras() { 

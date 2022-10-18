@@ -11,7 +11,7 @@ import javax.swing.JPanel;
  
 import ui.finale.PaginaInicial; 
 import ui.finale.Generos; 
-import ui.frame.tela.jogo.TelaJogo;
+import ui.frame.tela.jogo.TelaNumero;
  
  
 public class TiposNumeros extends JFrame { 
@@ -24,7 +24,7 @@ public class TiposNumeros extends JFrame {
 	private JButton medio; 
 	private JButton dificil; 
 	
-	TelaJogo jogo = new TelaJogo();
+	TelaNumero jogo = new TelaNumero();
   
  public void criarNumeros() {
 	 
@@ -62,6 +62,7 @@ public class TiposNumeros extends JFrame {
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
 	   jogo.getTeste().deslocamento().getTabuleiro().setDefinir(3);
+	   jogo.setConquista(jogo.getTeste().deslocamento().Facil());
 	   jogo.Teste();
    }  
   });  
@@ -73,6 +74,7 @@ public class TiposNumeros extends JFrame {
    public void actionPerformed (ActionEvent e) {  
 	setVisible(false);
 	jogo.getTeste().deslocamento().getTabuleiro().setDefinir(4);
+	jogo.setConquista(jogo.getTeste().deslocamento().Medio());
 	   jogo.Teste();   }  
   });  
    
@@ -83,6 +85,7 @@ public class TiposNumeros extends JFrame {
    public void actionPerformed (ActionEvent e) {  
 	   setVisible(false);
 	   jogo.getTeste().deslocamento().getTabuleiro().setDefinir(5);
+	   jogo.setConquista(jogo.getTeste().deslocamento().Dificil());
 	   jogo.Teste();   }  
   });  
   
