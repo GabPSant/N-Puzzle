@@ -5,6 +5,7 @@ import ui.finale.Generos;
 import ui.finale.TiposNumeros;
 import puzzle.deslocamento.DeslocamentoLetra;
 import puzzle.erros.ErroForaLimite;
+import ui.frame.Save;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.util.Collections;
 import java.awt.event.KeyEvent;
 import java.awt.GridLayout;
@@ -37,6 +39,8 @@ public class TelaLetra extends JFrame implements MouseListener{
 	JButton[] botoes;
 	JLabel movimentos = new JLabel();
 	GridLayout começo;
+	private String nome;
+	Save salvar = new Save();
 	Action Subir;
 	Action Esquerda;
 	Action Direita;
@@ -134,8 +138,30 @@ public class TelaLetra extends JFrame implements MouseListener{
 				botoes[i].setForeground(new Color(255,153,0));
 				botoes[i].repaint();
 			}
-			jogo.setVisible(false);
-			jogo.setVisible(true);
+			matriz.repaint();
+			if(teste.deslocamento().getDefinir() == 3) {
+				if(teste.deslocamento().Facil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+				}
+			}else if(teste.deslocamento().getDefinir() == 4){
+				if(teste.deslocamento().Medio()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+				}
+			}else if(teste.deslocamento().getDefinir() == 5) {
+				if(teste.deslocamento().Dificil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
 		}
 	}
 	public class Esquerda extends AbstractAction{
@@ -159,8 +185,32 @@ public class TelaLetra extends JFrame implements MouseListener{
 				botoes[i].setForeground(new Color(255,153,0));
 				botoes[i].repaint();
 			}
-			jogo.setVisible(false);
-			jogo.setVisible(true);
+			matriz.repaint();
+			if(teste.deslocamento().getDefinir() == 3) {
+				if(teste.deslocamento().Facil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+				}
+			}else if(teste.deslocamento().getDefinir() == 4){
+				if(teste.deslocamento().Medio()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+				}
+			}else if(teste.deslocamento().getDefinir() == 5) {
+				if(teste.deslocamento().Dificil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					
+				}
+			}
+			
 	}
 }
 	public class Direita extends AbstractAction{
@@ -184,8 +234,7 @@ public class TelaLetra extends JFrame implements MouseListener{
 				botoes[i].setForeground(new Color(255,153,0));
 				botoes[i].repaint();
 			}
-			jogo.setVisible(false);
-			jogo.setVisible(true);
+			matriz.repaint();
 			
 			if(teste.deslocamento().getDefinir() == 3) {
 				if(teste.deslocamento().Facil()) {
@@ -193,6 +242,16 @@ public class TelaLetra extends JFrame implements MouseListener{
 					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
 					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
 					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.getLetras());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}else if(teste.deslocamento().getDefinir() == 4){
 				if(teste.deslocamento().Medio()) {
@@ -200,6 +259,16 @@ public class TelaLetra extends JFrame implements MouseListener{
 					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
 					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
 					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.getLetras());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}else if(teste.deslocamento().getDefinir() == 5) {
 				if(teste.deslocamento().Dificil()) {
@@ -207,6 +276,16 @@ public class TelaLetra extends JFrame implements MouseListener{
 					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
 					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
 					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.getLetras());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 	}
@@ -232,8 +311,62 @@ public class TelaLetra extends JFrame implements MouseListener{
 				botoes[i].setForeground(new Color(255,153,0));
 				botoes[i].repaint();
 			}
-			jogo.setVisible(false);
-			jogo.setVisible(true);
+			matriz.repaint();
+			if(teste.deslocamento().getDefinir() == 3) {
+				if(teste.deslocamento().Facil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+				salvar.setJogador(nome);
+				salvar.setJogadas(teste.deslocamento().getObservador());
+				salvar.setLista(teste.getLetras());
+				try {
+					salvar.salvarJogo();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				}
+				
+			}else if(teste.deslocamento().getDefinir() == 4){
+				if(teste.deslocamento().Medio()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+				salvar.setJogador(nome);
+				salvar.setJogadas(teste.deslocamento().getObservador());
+				salvar.setLista(teste.getLetras());
+				try {
+					salvar.salvarJogo();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				}
+				
+			}else if(teste.deslocamento().getDefinir() == 5) {
+				if(teste.deslocamento().Dificil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+				salvar.setJogador(nome);
+				salvar.setJogadas(teste.deslocamento().getObservador());
+				salvar.setLista(teste.getLetras());
+				try {
+					salvar.salvarJogo();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				}
+				
+			}
 	}	
 }
 	public static void main(String[] args) {

@@ -2,6 +2,7 @@ package ui.frame.tela.jogo;
 import puzzle.nivel.NivelNumero;
 import ui.finale.Generos;
 import ui.finale.TiposNumeros;
+import ui.frame.Save;
 import puzzle.deslocamento.DeslocamentoNumero;
 import puzzle.erros.ErroForaLimite;
 
@@ -25,6 +26,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.awt.event.KeyEvent;
 import java.awt.GridLayout;
 
@@ -34,12 +36,14 @@ public class TelaNumero extends JFrame implements MouseListener{
 	private int posB1;
 	private int posB2;
 	private int tempB2;
+	private String nome;
 	NivelNumero teste = new NivelNumero();
 	JFrame jogo = new JFrame();
 	JLabel movimentos = new JLabel();
 	JPanel matriz = new JPanel();
 	JButton[] botoes;
 	GridLayout começo;
+	Save salvar = new Save();
 	Action Subir;
 	Action Esquerda;
 	Action Direita;
@@ -135,11 +139,7 @@ public class TelaNumero extends JFrame implements MouseListener{
 				botoes[i].setForeground(new Color(255,153,0));
 				botoes[i].repaint();
 			}
-			jogo.setVisible(false);
-			jogo.setVisible(true);
-			/*if(conquista) {
-				
-			}*/
+			matriz.repaint();
 			
 			if(teste.deslocamento().getTabuleiro().getDefinir() == 3) {
 				if(teste.deslocamento().Facil()) {
@@ -147,6 +147,16 @@ public class TelaNumero extends JFrame implements MouseListener{
 					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
 					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
 					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}else if(teste.deslocamento().getTabuleiro().getDefinir() == 4){
 				if(teste.deslocamento().Medio()) {
@@ -154,6 +164,16 @@ public class TelaNumero extends JFrame implements MouseListener{
 					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
 					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
 					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}else if(teste.deslocamento().getTabuleiro().getDefinir() == 5) {
 				if(teste.deslocamento().Dificil()) {
@@ -161,6 +181,16 @@ public class TelaNumero extends JFrame implements MouseListener{
 					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
 					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
 					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
 			}
 		}
@@ -187,11 +217,59 @@ public class TelaNumero extends JFrame implements MouseListener{
 				botoes[i].setForeground(new Color(255,153,0));
 				botoes[i].repaint();
 			}
-			jogo.setVisible(false);
-			jogo.setVisible(true);
-			/*if(conquista) {
-			
-			}*/
+			matriz.repaint();
+			if(teste.deslocamento().getTabuleiro().getDefinir() == 3) {
+				if(teste.deslocamento().Facil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}else if(teste.deslocamento().getTabuleiro().getDefinir() == 4){
+				if(teste.deslocamento().Medio()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}else if(teste.deslocamento().getTabuleiro().getDefinir() == 5) {
+				if(teste.deslocamento().Dificil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}
 	}
 }
 	public class Direita extends AbstractAction{
@@ -216,11 +294,59 @@ public class TelaNumero extends JFrame implements MouseListener{
 				botoes[i].setForeground(new Color(255,153,0));
 				botoes[i].repaint();
 			}
-			jogo.setVisible(false);
-			jogo.setVisible(true);
-			/*if(conquista) {
-			
-			}*/
+			matriz.repaint();
+			if(teste.deslocamento().getTabuleiro().getDefinir() == 3) {
+				if(teste.deslocamento().Facil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}else if(teste.deslocamento().getTabuleiro().getDefinir() == 4){
+				if(teste.deslocamento().Medio()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}else if(teste.deslocamento().getTabuleiro().getDefinir() == 5) {
+				if(teste.deslocamento().Dificil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}
 	}
 }
 	public class Descer extends AbstractAction{
@@ -244,46 +370,87 @@ public class TelaNumero extends JFrame implements MouseListener{
 				botoes[i].setForeground(new Color(255,153,0));
 				botoes[i].repaint();
 			}
-			jogo.setVisible(false);
-			jogo.setVisible(true);
-			/*if(conquista) {
-			
-			}*/
+			matriz.repaint();
+			if(teste.deslocamento().getTabuleiro().getDefinir() == 3) {
+				if(teste.deslocamento().Facil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}else if(teste.deslocamento().getTabuleiro().getDefinir() == 4){
+				if(teste.deslocamento().Medio()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showInputDialog("Por favor, coloque o seu nome: ", nome);
+					salvar.setJogador(nome);
+					salvar.setJogadas(teste.deslocamento().getObservador());
+					salvar.setLista(teste.deslocamento().getTabuleiro().getNumeros());
+					try {
+						salvar.salvarJogo();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}else if(teste.deslocamento().getTabuleiro().getDefinir() == 5) {
+				if(teste.deslocamento().Dificil()) {
+					JOptionPane.showMessageDialog(null,
+					        "Seu emprenho foi recompensado!!!\n\n", //mensagem
+					        "PARABÉNS, VOCÊ VENCEU", // titulo da janela 
+					        JOptionPane.INFORMATION_MESSAGE);
+
+			}
 	}	
 }
 	public static void main(String[] args) {
 		TelaNumero teste = new TelaNumero();
 		teste.Teste();
 	}
+	
+
+	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		dica.setBounds(630, 20, 300, 300);
 		dica.setIcon(resultado);
-		
 	}
+
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		dica.setBounds(720, 90, 100, 100);
 		dica.setIcon(logo);
-
-		
 	}
-
 }
