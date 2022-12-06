@@ -127,7 +127,6 @@ public class TelaNumero extends JFrame implements MouseListener{
 			}
 			movimentos.setText("Nº de Movimentos: " + String.valueOf(teste.deslocamento().getObservador()));
 			matriz.removeAll();
-			//matriz.repaint();
 			for(int i = 0; i< (int)Math.pow(teste.deslocamento().getTabuleiro().getDefinir(), 2); i++) {
 				if(teste.deslocamento().getTabuleiro().getNumeros().get(i) == null) {
 					matriz.add(botoes[i] = new JButton(""));
