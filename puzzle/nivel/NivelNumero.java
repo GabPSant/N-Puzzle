@@ -11,7 +11,6 @@ public class NivelNumero{
 	
 	public void Dificuldade(String nivel) {
 		des.setMaluco(false);
-		if(des.getMaluco() || !des.getMaluco()) {
 			switch(nivel) {
 			case "Facil":
 				des.getTabuleiro().setDefinir(3);
@@ -32,7 +31,6 @@ public class NivelNumero{
 				des.setGiro(2);
 				break;
 			}
-		}
 	}
 	public static void main(String[] args) {
 		NivelNumero teste = new NivelNumero();
